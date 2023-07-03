@@ -8,10 +8,6 @@ plugins {
     kotlin("plugin.jpa") version "1.8.22" apply false
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-}
-
 allprojects {
     group = "com.kotlin"
     version = "0.0.1-SNAPSHOT"
@@ -27,6 +23,8 @@ subprojects {
     apply(plugin = "kotlin-jpa")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
+
+    java.sourceCompatibility = JavaVersion.VERSION_17
 
     dependencies {
         // kotlin jackson
