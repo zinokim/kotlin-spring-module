@@ -1,5 +1,9 @@
 package com.kotlin.practice.member.request
 
+/**
+ * @author zino kim
+ * @created 2023. 7. 6. thur
+ */
 data class MemberSignUpRequest(
     val email: String,
     val password: String,
@@ -7,9 +11,20 @@ data class MemberSignUpRequest(
     val hometown: String
 ) {
     init {
-        requireNotNull(email.isNotBlank())
-        requireNotNull(password.isNotBlank())
-        requireNotNull(memberName.isNotBlank())
-        requireNotNull(hometown.isNotBlank())
+        require(validate())
+    }
+
+    /**
+     * validate member information
+     *
+     * @author zino kim
+     * @created 2023. 7. 6. thur
+     */
+    private fun validate(): Boolean {
+        if (email.isBlank()) return false
+        if (memberName.isBlank()) return false
+        if (hometown.isBlank()) return false
+
+        return true
     }
 }
